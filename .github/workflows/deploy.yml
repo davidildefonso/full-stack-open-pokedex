@@ -17,3 +17,4 @@ jobs:
           heroku_email: "david_lion_ig@outlook.com.pe"
           healthcheck: "https://pokeappfull.herokuapp.com/health"
           checkstring: "check"
+          rollbackonhealthcheckfailed: true
