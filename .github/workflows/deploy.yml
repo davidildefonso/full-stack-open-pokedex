@@ -9,7 +9,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-    if: ${{ github.event_name == 'push'}}
+    #if: ${{ github.event_name == 'push'}}
     build:
     runs-on: ubuntu-latest
     steps:
