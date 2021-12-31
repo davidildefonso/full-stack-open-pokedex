@@ -9,21 +9,15 @@ on:
     types: [opened, synchronize]
 
 jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2     
-        - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-          with:
-            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-            heroku_app_name: "pokeappfull" #Must be unique in Heroku
-            heroku_email: "david_lion_ig@outlook.com.pe"
-            healthcheck: "https://pokeappfull.herokuapp.com/health"
-            checkstring: "check"
-            rollbackonhealthcheckfailed: true
-        - name: Bump version and push tag
-          uses: anothrNick/github-tag-action@1.33.0
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            DEFAULT_BUMP: patch
-            WITH_V: true
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "pokeappfull" 
+          heroku_email: "david_lion_ig@outlook.com.pe"
+          healthcheck: "https://pokeappfull.herokuapp.com/health"
+          checkstring: "check"
+          rollbackonhealthcheckfailed: true
